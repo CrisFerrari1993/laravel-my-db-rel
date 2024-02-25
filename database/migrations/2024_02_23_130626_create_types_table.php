@@ -16,8 +16,9 @@ return new class extends Migration
         Schema::create('types', function (Blueprint $table) {
             $table->id();
 
-            $table->string('stack_development');
-            $table->string('project_type');
+            $table->string('name');
+            $table->text('description')->nullable();
+            $table->string('icon')->nullable();
 
             $table->timestamps();
         });

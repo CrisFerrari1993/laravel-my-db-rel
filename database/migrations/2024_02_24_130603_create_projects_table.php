@@ -14,15 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('projects', function (Blueprint $table) {
-
             $table->id();
 
-            $table->string('title')->unique();
-            $table->text('description')->nullable();
-            $table->string('img_url')->nullable();
-            $table->date('creation_date');
-            $table->string('status');
-
+            $table->string("title");
+            $table->text("description")->nullable();
 
             $table->timestamps();
         });

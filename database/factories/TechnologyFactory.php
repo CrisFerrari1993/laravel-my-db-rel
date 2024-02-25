@@ -17,7 +17,7 @@ class TechnologyFactory extends Factory
     public function definition()
     {
         return [
-            'framework' => fake() -> randomElement(['Vue.JS', 'Angular', 'React', 'Pyton', 'Laravel', 'Java', 'Ruby', 'Simfony'])
+            'name' => fake()->words(3, true),
         ];
     }
 }

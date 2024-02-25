@@ -2,11 +2,10 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
-
 use App\Models\Project;
 use App\Models\Type;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
 
 class ProjectTableSeeder extends Seeder
 {
@@ -17,16 +16,23 @@ class ProjectTableSeeder extends Seeder
      */
     public function run()
     {
-        Project :: factory() 
-                -> count(10) 
-                -> make()
-                ->each(function($project){
+        // $types = Type::all();
+        // $types->each(function ($type) {
 
-                    $type = Type :: inRandomOrder() -> first();
+        //     $project = Project::factory()->make();
+        //     $project->type()->associate($type);
 
-                    $project -> type() -> associate($type);
-                    $project ->save();
+        //     $project->save();
+        // });
+        Project::factory()
+            ->count(50)
+            ->make()
+            ->each(function ($project) {
 
-                });
+                $type = Type::inRandomOrder()->first();
+                $project->type()->associate($type);
+
+                $project->save();
+            });
     }
 }

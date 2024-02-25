@@ -5,7 +5,7 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Type>
  */
 class TypeFactory extends Factory
 {
@@ -17,8 +17,9 @@ class TypeFactory extends Factory
     public function definition()
     {
         return [
-            'stack_development'=> fake() -> randomElement(['FrontEnd', 'BackEnd']),
-            'project_type'=> fake() -> randomElement(['Web-App', 'Single-Page-App', 'Store-App', 'Blog-App'])
+            'name' => fake()->words(3, true),
+            'description' => fake()->optional()->paragraph(3, false),
+            'icon' => fake()->optional()->imageUrl(360, 360, 'project', true, 'cats'),
         ];
     }
 }
